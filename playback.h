@@ -7,6 +7,9 @@
 
 #pragma once
 
+#ifndef PLAYBACK_H
+#define PLAYBACK_H
+
 class CVideoRenderer;
 
 enum PlaybackState
@@ -34,10 +37,9 @@ public:
     HRESULT Play();
     HRESULT Pause();
     HRESULT Stop();
-<<<<<<< HEAD
-=======
-   
->>>>>>> Ajoutez des fichiers projet.
+    HRESULT SetRate(double dRate);
+    HRESULT SetPositions(LONGLONG* pCurrent);
+
 
     BOOL    HasVideo() const;
     HRESULT UpdateVideoWindow(const LPRECT prc);
@@ -60,16 +62,7 @@ private:
     IMediaControl* m_pControl;
     IMediaEventEx* m_pEvent;
     CVideoRenderer* m_pVideo;
-<<<<<<< HEAD
-}; 
-=======
+    IMediaSeeking* pSeek;
 };
 
-class IMediaSeeking
-{
-public:
-
-    HRESULT SetRate(double dRate);
-};
->>>>>>> Ajoutez des fichiers projet.
-#pragma once
+#endif
