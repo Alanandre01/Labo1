@@ -17,7 +17,8 @@ DShowPlayer::DShowPlayer(HWND hwnd) :
     m_pGraph(NULL),
     m_pControl(NULL),
     m_pEvent(NULL),
-    m_pVideo(NULL)
+    m_pVideo(NULL),
+    pSeek(NULL)
 {
 
 }
@@ -139,9 +140,16 @@ HRESULT DShowPlayer::Stop()
     return hr;
 }
 
-HRESULT IMediaSeeking::SetRate(double dRate) {
-    
+HRESULT DShowPlayer::SetRate(double dRate)
+{
+    HRESULT hr = pSeek->SetRate(dRate);
+    if (SUCCEEDED(hr))
+    {
+        m_state = STATE_RUNNING;
+    }
+    return hr;
 }
+
 
 // EVR/VMR functionality
 
@@ -212,6 +220,12 @@ HRESULT DShowPlayer::InitializeGraph()
     }
 
     hr = m_pGraph->QueryInterface(IID_PPV_ARGS(&m_pControl));
+    if (FAILED(hr))
+    {
+        goto done;
+    }
+
+    hr = m_pGraph->QueryInterface(IID_PPV_ARGS(&pSeek));
     if (FAILED(hr))
     {
         goto done;

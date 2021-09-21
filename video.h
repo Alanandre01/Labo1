@@ -7,11 +7,16 @@
 
 #pragma once
 
+#ifndef VIDEO_H
+#define VIDEO_H
+
 #include <windows.h>
 #include <dshow.h>
 #include <d3d9.h>
 #include <Vmr9.h>
 #include <Evr.h>
+
+
 
 template <class T> void SafeRelease(T** ppT)
 {
@@ -93,3 +98,4 @@ public:
     HRESULT Repaint(HWND hwnd, HDC hdc);
     HRESULT DisplayModeChanged();
 };
+#endif

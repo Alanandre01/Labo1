@@ -10,16 +10,16 @@
 #include <windows.h>
 #include <dshow.h>
 #include "playback.h"
+#include "video.h"
 
-#pragma comment(lib, "strmiids")
+#pragma comment(lib, "strmiids.lib")
 
 
 DShowPlayer* g_pPlayer = NULL;
-IMediaSeeking* pSeek = NULL;
 
 LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 void CALLBACK OnGraphEvent(HWND hwnd, long eventCode, LONG_PTR param1, LONG_PTR param2);
-int OnChar(HWND hwnd, wchar_t c);
+void OnChar(HWND hwnd, wchar_t c);
 void OnFileOpen(HWND hwnd);
 void OnPaint(HWND hwnd);
 void OnSize(HWND hwnd);
@@ -156,7 +156,7 @@ void CALLBACK OnGraphEvent(HWND hwnd, long evCode, LONG_PTR param1, LONG_PTR par
     }
 }
 
-int OnChar(HWND hwnd, wchar_t c)
+void OnChar(HWND hwnd, wchar_t c)
 {
     switch (c)
     {
@@ -182,9 +182,9 @@ int OnChar(HWND hwnd, wchar_t c)
     case L'A':
         if (g_pPlayer->State() == STATE_RUNNING)
         {
-            pSeek->SetRate(2.0);
+            g_pPlayer->SetRate(2.0);
         }
-       break;
+        break;
 
     case L'r':
     case L'R':
@@ -203,7 +203,7 @@ int OnChar(HWND hwnd, wchar_t c)
         if (g_pPlayer->State() == STATE_RUNNING || g_pPlayer->State() == STATE_PAUSED)
         {
             g_pPlayer->Stop();
-            return 0;
+
         }
         break;
     }
