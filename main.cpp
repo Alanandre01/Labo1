@@ -10,16 +10,24 @@
 #include <windows.h>
 #include <dshow.h>
 #include "playback.h"
-#include "video.h"
 
-#pragma comment(lib, "strmiids.lib")
+#pragma comment(lib, "strmiids")
 
-
+<<<<<<< HEAD
 DShowPlayer* g_pPlayer = NULL;
 
 LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 void CALLBACK OnGraphEvent(HWND hwnd, long eventCode, LONG_PTR param1, LONG_PTR param2);
 void OnChar(HWND hwnd, wchar_t c);
+=======
+
+DShowPlayer* g_pPlayer = NULL;
+IMediaSeeking* pSeek = NULL;
+
+LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
+void CALLBACK OnGraphEvent(HWND hwnd, long eventCode, LONG_PTR param1, LONG_PTR param2);
+int OnChar(HWND hwnd, wchar_t c);
+>>>>>>> Ajoutez des fichiers projet.
 void OnFileOpen(HWND hwnd);
 void OnPaint(HWND hwnd);
 void OnSize(HWND hwnd);
@@ -156,14 +164,21 @@ void CALLBACK OnGraphEvent(HWND hwnd, long evCode, LONG_PTR param1, LONG_PTR par
     }
 }
 
+<<<<<<< HEAD
 void OnChar(HWND hwnd, wchar_t c)
+=======
+int OnChar(HWND hwnd, wchar_t c)
+>>>>>>> Ajoutez des fichiers projet.
 {
     switch (c)
     {
     case L'o':
     case L'O':
         OnFileOpen(hwnd);
+<<<<<<< HEAD
+=======
         g_pPlayer->Play();
+>>>>>>> Ajoutez des fichiers projet.
         break;
 
     case L'p':
@@ -177,41 +192,42 @@ void OnChar(HWND hwnd, wchar_t c)
             g_pPlayer->Play();
         }
         break;
+<<<<<<< HEAD
+    }
+=======
 
     case L'a':
     case L'A':
         if (g_pPlayer->State() == STATE_RUNNING)
         {
-            g_pPlayer->SetRate(2.0);
+            pSeek->SetRate(2.0);
         }
-        break;
+       break;
 
     case L'r':
     case L'R':
-        if (g_pPlayer->State() == STATE_RUNNING || g_pPlayer->State() == STATE_PAUSED)
+        if (g_pPlayer->State() == STATE_RUNNING)
         {
-            REFERENCE_TIME rtNow = 0;
-            g_pPlayer->SetPositions(&rtNow);
-
+            g_pPlayer->Pause();
         }
-        break;
-
-    case L's':
-    case L'S':
-        if (g_pPlayer->State() == STATE_RUNNING || g_pPlayer->State() == STATE_PAUSED)
+        else
         {
-            g_pPlayer->Stop();
-
+            g_pPlayer->Play();
         }
         break;
 
     case L'q':
     case L'Q':
-        exit(0);
+        if (g_pPlayer->State() == STATE_RUNNING || g_pPlayer->State() == STATE_PAUSED)
+        {
+            g_pPlayer->Stop();
+            return 0;
+        }
         break;
     }
-    return;
 
+
+>>>>>>> Ajoutez des fichiers projet.
 }
 
 void OnFileOpen(HWND hwnd)

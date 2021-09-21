@@ -139,6 +139,12 @@ HRESULT DShowPlayer::Stop()
     return hr;
 }
 
+<<<<<<< HEAD
+=======
+HRESULT IMediaSeeking::SetRate(double dRate) {
+    
+}
+>>>>>>> Ajoutez des fichiers projet.
 
 // EVR/VMR functionality
 

@@ -34,6 +34,10 @@ public:
     HRESULT Play();
     HRESULT Pause();
     HRESULT Stop();
+<<<<<<< HEAD
+=======
+   
+>>>>>>> Ajoutez des fichiers projet.
 
     BOOL    HasVideo() const;
     HRESULT UpdateVideoWindow(const LPRECT prc);
@@ -56,5 +60,16 @@ private:
     IMediaControl* m_pControl;
     IMediaEventEx* m_pEvent;
     CVideoRenderer* m_pVideo;
+<<<<<<< HEAD
 }; 
+=======
+};
+
+class IMediaSeeking
+{
+public:
+
+    HRESULT SetRate(double dRate);
+};
+>>>>>>> Ajoutez des fichiers projet.
 #pragma once
