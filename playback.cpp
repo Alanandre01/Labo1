@@ -150,6 +150,16 @@ HRESULT DShowPlayer::SetRate(double dRate)
     return hr;
 }
 
+HRESULT DShowPlayer::SetPositions(LONGLONG* pCurrent)
+{
+    HRESULT hr = pSeek->SetPositions(pCurrent, AM_SEEKING_RelativePositioning, NULL, AM_SEEKING_NoPositioning);
+    if (SUCCEEDED(hr))
+    {
+        m_state = STATE_RUNNING;
+    }
+    return hr;
+}
+
 
 // EVR/VMR functionality
 

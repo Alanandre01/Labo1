@@ -38,6 +38,7 @@ public:
     HRESULT Pause();
     HRESULT Stop();
     HRESULT SetRate(double dRate);
+    HRESULT SetPositions(LONGLONG* pCurrent);
 
 
     BOOL    HasVideo() const;
