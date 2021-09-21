@@ -10,8 +10,10 @@
 #include <windows.h>
 #include <dshow.h>
 #include "playback.h"
+#include "video.h"
 
-#pragma comment(lib, "strmiids")
+#pragma comment(lib, "strmiids.lib")
+
 
 DShowPlayer* g_pPlayer = NULL;
 
@@ -161,6 +163,7 @@ void OnChar(HWND hwnd, wchar_t c)
     case L'o':
     case L'O':
         OnFileOpen(hwnd);
+        g_pPlayer->Play();
         break;
 
     case L'p':
@@ -174,7 +177,41 @@ void OnChar(HWND hwnd, wchar_t c)
             g_pPlayer->Play();
         }
         break;
+
+    case L'a':
+    case L'A':
+        if (g_pPlayer->State() == STATE_RUNNING)
+        {
+            g_pPlayer->SetRate(2.0);
+        }
+        break;
+
+    case L'r':
+    case L'R':
+        if (g_pPlayer->State() == STATE_RUNNING || g_pPlayer->State() == STATE_PAUSED)
+        {
+            REFERENCE_TIME rtNow = 0;
+            g_pPlayer->SetPositions(&rtNow);
+
+        }
+        break;
+
+    case L's':
+    case L'S':
+        if (g_pPlayer->State() == STATE_RUNNING || g_pPlayer->State() == STATE_PAUSED)
+        {
+            g_pPlayer->Stop();
+
+        }
+        break;
+
+    case L'q':
+    case L'Q':
+        exit(0);
+        break;
     }
+    return;
+
 }
 
 void OnFileOpen(HWND hwnd)
