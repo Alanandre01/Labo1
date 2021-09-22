@@ -1,33 +1,24 @@
 # Lab 1 - Introduction à DirectShow
 
-Controle vidéo
-
 ## Auteur
 
-Laboratoire crée par Alan Brucher
+Laboratoire créé par Alan Brucher
 
 ## Installation
 
-Install my-project with npm
+Pour installer le projet, ouvrer Visual Studio et selectionner "cloner un dépôt" dans l'onglet Git.
+
+Utiliser cet emplacement:
 
 ```bash
-  npm install my-project
-  cd my-project
+  https://github.com/Alanandre01/Labo1.git
 ```
 
-To deploy this project run
-
-```bash
-  npm run deploy
-```
-
-Pour utiliser ce laboratoire, télécharger le projet et compiler le dans Visual Studio.
-
-Aller dans les propriété du projet et
+Ensuite, aller dans les propriétés du projet et selectionner le sous-système Windows dans "Editeur de liens/Système"
 
 Compiler le projet. 
 
-Dès l'apparition de la fenêtre, appuyer sur la touche "o" et selection la vidéo "Exemple.avi".
+Dès l'apparition de la fenêtre, appuyer sur la touche "O" et selectionner la vidéo "Exemple.avi".
 
 Utiliser les autres touches ci-dessous pour effectuer le contrôle de la vidéo.
 
@@ -37,7 +28,7 @@ Utiliser les autres touches ci-dessous pour effectuer le contrôle de la vidéo.
 - S - Stop
 - Q - Quitter 
 
-## License
+## Licence
 
 [MIT](https://choosealicense.com/licenses/mit/)
 
