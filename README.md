@@ -2,7 +2,7 @@
 
 Controle vidéo
 
-##Auteur
+## Auteur
 
 Laboratoire crée par Alan Brucher
 
