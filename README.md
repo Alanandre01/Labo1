@@ -1,9 +1,10 @@
 # Lab 1 - Introduction à DirectShow
 
+Controle vidéo
+
+##Auteur
+
 Laboratoire crée par Alan Brucher
-
-
-
 
 ## Installation
 
@@ -13,9 +14,6 @@ Install my-project with npm
   npm install my-project
   cd my-project
 ```
-
-
-## Deployment
 
 To deploy this project run
 
@@ -38,6 +36,7 @@ Utiliser les autres touches ci-dessous pour effectuer le contrôle de la vidéo.
 - R - Retour au début
 - S - Stop
 - Q - Quitter 
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
