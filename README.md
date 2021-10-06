@@ -11,7 +11,7 @@ Pour installer le projet, ouvrer Visual Studio et selectionner "cloner un dépô
 Utiliser cet emplacement:
 
 ```bash
-  https://github.com/Alanandre01/Labo1.git
+  https://github.com/Alanandre01/logiciel_Lab1.git
 ```
 
 Ensuite, aller dans les propriétés du projet et selectionner le sous-système Windows dans "Editeur de liens/Système"
